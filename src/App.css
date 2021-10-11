@@ -1,0 +1,28 @@
+.wrapper {
+    padding: 20px;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    background-color: burlywood;
+    padding: 20px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.link{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-style: solid;
+    padding: 5px;
+}
+
+.link:hover{
+    color: black;
+    transition: 0.5s;
+}
