@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
 
 function Login() {
   const [username, setUserName] = useState();

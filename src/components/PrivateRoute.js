@@ -20,17 +20,12 @@ function PrivateRoute({ children, ...rest }) {
 
     const [fakeAuth, setFakeAuth] = useState({ isAuthenticated: false })
 
-
     useEffect(() => {
         
+        console.log('render', {fakeAuth})
         
-        
-        console.log('render')
-            
-        
-        setFakeAuth({isAuthenticated: true})
+        setFakeAuth(fakeAuth.isAuthenticated = true)
           
-        console.log({fakeAuth})
         // return() =>{
         //     console.log('unmount')
         //     console.log({fakeAuth})
@@ -38,7 +33,6 @@ function PrivateRoute({ children, ...rest }) {
         // }
 
     }, [fakeAuth]);
-
 
     return (
         <Route {...rest} render={({ location }) => {
