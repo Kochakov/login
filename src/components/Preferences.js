@@ -1,6 +1,5 @@
-import react from 'react'
 
-const Preferences = () => {
+function Preferences(){
     return( 
         <div>
             Preferences

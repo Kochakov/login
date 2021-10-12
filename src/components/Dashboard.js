@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import Login from './Login';
+import React from 'react';
 
-export default function Dashboard() {
-
-  const [token, setToken] = useState();
-
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
-
+function Dashboard(){
   return(
     <h2>Dashboard</h2>
-  );
+  )
 }
+
+export default Dashboard;
+
+

@@ -1,51 +1,39 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
-async function loginUser(credentials) {
-    return fetch('http://localhost:8080/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    })
-      .then(data => data.json())
-   }
+function Login() {
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
 
-export default function Login( {setToken} ) {
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
+  const history = useHistory();
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const token = await loginUser({
-          username,
-          password
-        });
-        setToken(token);
-      }
+  const auth = () => {
+    if (username === 'Admin' && password === '12345') {
+      history.push('/dashboard');
+      console.log('auth')
+    }
+  }
 
-
-    return (
-        <div className="login-wrapper">
-            <h1>Please Log In</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <p>Username</p>
-                    <input type="text" onChange={e => setUserName(e.target.value)}/>
-                </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" onChange={e => setPassword(e.target.value)}/>
-                </label>
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+  return (
+    <div className="login-wrapper">
+      <h1>Please Log In</h1>
+      <form onSubmit={auth}>
+        <label>
+          <p>{username}</p>
+          <p>{password}</p>
+          <p>Username</p>
+          <input type="text" onChange={event => setUserName(event.target.value)} placeholder="Username" />
+        </label>
+        <label>
+          <p>Password</p>
+          <input type="password" onChange={event => setPassword(event.target.value)} placeholder="Pass" />
+        </label>
+        <div>
+          <button type="submit">Submit</button>
         </div>
-    )
+      </form>
+    </div>
+  )
 }
 
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
-  }
+export default Login;
