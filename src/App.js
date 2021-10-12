@@ -12,9 +12,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 function App() {
 
-  
-
-  return (
+    return (
     <div className="wrapper">
       <BrowserRouter>
         <Navbar />

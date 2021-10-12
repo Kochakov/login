@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 
 function Login() {
   const [username, setUserName] = useState();
@@ -10,10 +11,11 @@ function Login() {
   const auth = () => {
     if (username === 'Admin' && password === '12345') {
       history.push('/dashboard');
-      console.log('auth')
-    }
+      console.log('true auth')
+      
+    
   }
-
+  }
   return (
     <div className="login-wrapper">
       <h1>Please Log In</h1>
