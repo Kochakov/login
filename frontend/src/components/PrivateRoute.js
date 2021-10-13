@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState,  } from "react"
 import { Route, Redirect } from 'react-router-dom'
+
 
 // const fakeAuth = {
 //     isAuthenticated: false,
@@ -20,9 +21,16 @@ function PrivateRoute({ children, ...rest }) {
     const [fakeAuth, setFakeAuth] = useState({ isAuthenticated: false })
 
     useEffect(() => {
-
-        setFakeAuth({ isAuthenticated: true })
-        console.log('eff')
+        
+        console.log('render', {fakeAuth})
+        
+        setFakeAuth(fakeAuth.isAuthenticated = true)
+          
+        // return() =>{
+        //     console.log('unmount')
+        //     console.log({fakeAuth})
+            
+        // }
 
     }, [fakeAuth]);
 
@@ -36,6 +44,9 @@ function PrivateRoute({ children, ...rest }) {
                 }} />
         }} />
     )
+
 }
+
+
 
 export default PrivateRoute;
